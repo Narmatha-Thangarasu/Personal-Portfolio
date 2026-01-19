@@ -250,13 +250,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (contactForm) {
         contactForm.addEventListener("submit", async function (e) {
             e.preventDefault(); // stop default submit
-
+            
             const formData = new FormData(contactForm);
 
             try {
                 const response = await fetch(contactForm.action, {
-                    method: contactForm.method,
-                    body: formData,
+                     method: "POST", // 🔴 EXPLICIT POST (important)
+          body: formData,
                     headers: { 'Accept': 'application/json' }
                 });
 

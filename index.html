@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./Assets/css/style.css">
   <!-- Font Awesome -->
@@ -30,6 +31,7 @@
       <ul>
         <li><a class="active nav-link home" href="#home">Home</a></li>
         <li><a class="nav-link about" href="#about">About Me</a></li>
+          <li><a class="nav-link skills" href="#Profile">Profile</a></li>
         <li><a class="nav-link projects" href="#projects">Projects</a></li>
         <li><a class="nav-link contact" href="#contact">Contact</a></li>
         <li><button id="resume-button-1">
@@ -47,7 +49,7 @@
 
     <div class="content">
       <h2>Hi There,<br /> I'm Narmatha <span>Thangarasu</span></h2>
-      <p>i am into <span class="typing-text"></span></p>
+      <p> > <span class="typing-text"></span></p>
       <a href="#about" class="btn"><span>About Me</span>
         <i class="fas fa-arrow-circle-down"></i>
       </a>
@@ -62,80 +64,135 @@
     </div>
 
     <div class="image-container">
-    <img src="side image.png" alt="Narmatha's Image" />
+    <img src="nara.png" alt="Narmatha's Image" />
   </div>
 </section>
   
   <!-- hero section ends -->
 
 
-  <!-- about section starts -->
-  <section class="about about2 section" id="about">
-    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
 
-    <div class="row">
+<!-- About Section -->
+<section class="section about fade-in" id="about">
 
-      
-      
+<h2 class="heading"><i class="fas fa-user"></i> About <span>Me</span></h2>
+
+<div class="about-container">
+
+    <!-- LEFT COLUMN -->
+    <div class="about-left">
+
+        <h3>Software Developer</h3>
+
+        <ul class="about-points">
+            <li>Experienced in React Native, Java, and JavaScript development.</li>
+            <li>Built cross-platform mobile apps and responsive web applications.</li>
+            <li>Strong frontend skills in HTML, CSS, and React.</li>
+            <li>Backend integration using Spring Boot, REST APIs, and MySQL.</li>
+            <li>Focused on scalable, high-performance software solutions.</li>
+            <li>Continuously learning modern development tools and practices.</li>
+        </ul>
+
     </div>
-  </section>
-  <!-- about section ends -->
 
 
-  <!-- About Section -->
-   
-    <section class="section about fade-in" id="about">
+    <!-- RIGHT COLUMN -->
+    <div class="about-right">
+
+        <div class="about-card">
+            <i class="fas fa-code"></i>
+            <h4>Web Development</h4>
+            <p>Building responsive and interactive web applications.</p>
+        </div>
+
+        <div class="about-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h4>Mobile Apps</h4>
+            <p>Developing cross-platform apps using React Native.</p>
+        </div>
+
+        <div class="about-card">
+            <i class="fas fa-database"></i>
+            <h4>Backend</h4>
+            <p>Creating REST APIs with Spring Boot and MySQL.</p>
+        </div>
+
+        <div class="about-card">
+            <i class="fas fa-lightbulb"></i>
+            <h4>Problem Solving</h4>
+            <p>Designing scalable solutions with clean architecture.</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="resumebtn">
+    <a id="resume-link-2" href="Narmatha T.pdf" class="btn">
+        <span>Resume</span>
+        <i class="fas fa-chevron-right"></i>
+    </a>
+</div>
+
+</section>
+
+  <!--Skill section start-->
+
+<section class="section about fade-in" id="Profile">
+  <h2 class="heading"><i class="fas fa-user"></i> Profile</h2>
+
         <div class="container">
-            <div class="about-content">
-                
-                <div class="about-text">
-                    <h3>Creative Developer with a Passion for Innovation</h3>
-                    <p>I’m a passionate software developer with a strong grasp of Java, JavaFX, HTML, and CSS. I specialize in creating functional, user-friendly applications and bringing ideas to life through clean and efficient code. With a curious mindset and a focus on delivering quality, I strive to build digital experiences that are both impactful and reliable. </p>
-                    <p>Self-motivated with a strong problem-solving mindset and curious learner.
-          Keen interest in building user-centric products. Looking forward to working in a challenging role with a
-          growth-oriented organization..</p>
-                    <div class="tab-profile">
+    <div class="tab-profile">
   <div class="tabs" id="profile-tabs">
     <div id="tab-skills" class="active">Skills</div>
     <div id="tab-education">Education</div>
     <div id="tab-experience">Experience</div>
   </div>
 
+  
   <div id="skills" class="content-section active">
-  <div class="card">
-    <div class="card-icon"><i class="fab fa-java"></i></div>
-    Java
+
+<!-- CATEGORY BOXES -->
+<div class="skill-categories">
+  <div class="skill-box" onclick="showSkillsCategory('frontend')">Frontend</div>
+  <div class="skill-box" onclick="showSkillsCategory('backend')">Backend</div>
+  <div class="skill-box" onclick="showSkillsCategory('database')">Database</div>
+  <div class="skill-box" onclick="showSkillsCategory('tools')">Tools</div>
+</div>
+
+
+<!-- SKILLS AREA -->
+<div class="skills-area">
+
+  <div id="frontend" class="skill-display">
+    <div class="card"><i class="devicon-html5-plain colored"></i> HTML5</div>
+    <div class="card"><i class="devicon-css3-plain colored"></i> CSS3</div>
+    <div class="card"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+    <div class="card"><i class="devicon-react-original colored"></i> React</div>
   </div>
-  <div class="card">
-    <div class="card-icon"><i class="fab fa-html5"></i></div>
-    HTML 5
+
+  <div id="backend" class="skill-display">
+    <div class="card"><i class="devicon-java-plain colored"></i> Java</div>
+    <div class="card"><i class="devicon-spring-plain colored"></i> Spring Boot</div>
+    <div class="card"><i class="devicon-hibernate-plain colored"></i> Hibernate</div>
+    <div class="card"><i class="devicon-java-plain colored"></i> JDBC</div>
+    <div class="card"><i class="devicon-java-plain colored"></i> J2EE</div>
+    <div class="card"><i class="devicon-fastapi-plain colored"></i> REST API</div>
   </div>
-  <div class="card">
-    <div class="card-icon"><i class="fab fa-css3-alt"></i></div>
-    CSS3
+
+  <div id="database" class="skill-display">
+    <div class="card"><i class="devicon-mysql-plain colored"></i> MySQL</div>
   </div>
-  <div class="card">
-    <div class="card-icon"><i class="fab fa-js-square"></i></div>
-    JavaScript
+
+  <div id="tools" class="skill-display">
+    <div class="card"><img src="eclipse-logo.png" class="skill-logo"> Eclipse</div>
+    <div class="card"><img src="intellij-logo.png" class="skill-logo"> IntelliJ</div>
+    <div class="card"><i class="devicon-vscode-plain colored"></i> VS Code</div>
+    <div class="card"><img src="github-logo.png" class="skill-logo"> Git</div>
   </div>
-  
-  <div class="card">
-    <div class="card-icon"><i class="fab fa-react"></i></div>
-    React Native
-  </div>
-  <div class="card">
-    <div class="card-icon"><i class="fab fa-java"></i></div>
-    JavaFX
-  </div>
-  <div class="card">
-    <div class="card-icon"><i class="fas fa-pencil-ruler"></i></div>
-    UI/UX
-  </div>
-  <div class="card">
-    <div class="card-icon"><i class="fab fa-github"></i></div>
-    Git
-  </div>
-  
+
+</div>
 </div>
 
 
@@ -160,36 +217,51 @@
     </div>
   </div>
 
+
   <div id="experience" class="content-section">
-    <div class="card" style="text-align: left;">
+
+  <div class="experience-container">
+
+    <!-- Internship 1 -->
+    <div class="card experience-card">
       <div class="card-icon">💼</div>
-      Internship at Accent Techno Soft
-      <div class="card-details">Coimbatore</div>
-      <div class="card-details">Duration: 11.06.2025 to 11.07.2025</div>
+      <h3>React Native - Intern - Accent Techno Soft</h3>
+      <div class="card-details">Coimbatore. Tamil Nadu</div>
+      <div class="card-details">Duration: 11.06.2025 – 11.07.2025</div>
       <div class="card-details">Domain: React Native</div>
+
       <div class="internship-desc">
-        Worked on developing mobile applications using React Native, collaborating with cross-functional teams to deliver high-quality user interfaces. Gained experience in debugging, testing, and optimizing app performance.
+        Worked on developing mobile applications using React Native,
+        collaborating with cross-functional teams to deliver high-quality
+        user interfaces. Gained experience in debugging, testing, and
+        optimizing app performance.
       </div>
     </div>
+
+    <!-- Internship 2 -->
+    <div class="card experience-card">
+      <div class="card-icon">💼</div>
+      <h3>Software Developer - Intern - Tap Academy</h3>
+      <div class="card-details">Bengaluru, Karnataka</div>
+      <div class="card-details">Duration: 16.02.2026 – Present</div>
+      <div class="card-details">Domain: Software Developer</div>
+
+      <div class="internship-desc">
+        Undergoing Software Developer Intern training for web and mobile
+        development. Learning programming concepts, modern tools, and
+        software development best practices.
+      </div>
+    </div>
+
   </div>
 </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="resumebtn">
+    
 
-            <a id="resume-link-2" href="Narmatha T.pdf"  class="btn"><span>Resume</span>
-              <i class="fas fa-chevron-right"></i>
-            </a>
-
-        </div>
+</div>
+ </div>
 
     </section>
-
-
-
-  <!--Skill section ends-->
+<!-- skill section ends-->
   
 
 
@@ -316,9 +388,9 @@
         <h3>quick links</h3>
         <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
         <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-        <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+        <a href="#Profile"><i class="fas fa-chevron-circle-right"></i> Profile</a>
 
-        <a href="#projects"><i class="fas fa-chevron-circle-right"></i> work</a>
+        <a href="#projects"><i class="fas fa-chevron-circle-right"></i> Projects</a>
 
       </div>
       <!--  -->

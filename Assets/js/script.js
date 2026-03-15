@@ -58,7 +58,7 @@ document.addEventListener('visibilitychange',
 
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
-    strings: ["Java Development", "Front-End Development"],
+    strings: ["Software Developer", "Front-End Developer"],
     loop: true,
     typeSpeed: 50,
     backSpeed: 25,
@@ -282,43 +282,84 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ===== SCROLL REVEAL ANIMATION ===== */
-// const srtop = ScrollReveal({
-//     origin: 'top',
-//     distance: '80px',
-//     duration: 1000,
-//     reset: true
-// });
+const srtop = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 1000,
+    reset: true
+});
 
-// /* SCROLL HOME */
-// srtop.reveal('.home2 .content h3', { delay: 200 });
-// srtop.reveal('.home2 .content p', { delay: 200 });
-// srtop.reveal('.home2 .content .btn', { delay: 200 });
+/* SCROLL HOME */
+srtop.reveal('.home2 .content h3', { delay: 200 });
+srtop.reveal('.home2 .content p', { delay: 200 });
+srtop.reveal('.home2 .content .btn', { delay: 200 });
 
-// srtop.reveal('.home2 .image', { delay: 400 });
-// srtop.reveal('.home2 .linkedin', { interval: 600 });
-// srtop.reveal('.home2 .github', { interval: 800 });
-
-
-
-// srtop.reveal('.home2 .dev', { interval: 600 });
-
-// /* SCROLL ABOUT */
-// srtop.reveal('.about2 .content h3', { delay: 200 });
-// srtop.reveal('.about2 .content .tag', { delay: 200 });
-// srtop.reveal('.about2 .content p', { delay: 200 });
-// srtop.reveal('.about2 .content .box-container', { delay: 200 });
-// srtop.reveal('.about2 .content .resumebtn', { delay: 200 });
+srtop.reveal('.home2 .image', { delay: 400 });
+srtop.reveal('.home2 .linkedin', { interval: 600 });
+srtop.reveal('.home2 .github', { interval: 800 });
 
 
-// /* SCROLL SKILLS */
-// srtop.reveal('.skills2 .container', { interval: 200 });
-// srtop.reveal('.skills2 .container .bar', { delay: 400 });
+
+srtop.reveal('.home2 .dev', { interval: 600 });
+
+/* SCROLL ABOUT */
+srtop.reveal('.about2 .content h3', { delay: 200 });
+srtop.reveal('.about2 .content .tag', { delay: 200 });
+srtop.reveal('.about2 .content p', { delay: 200 });
+srtop.reveal('.about2 .content .box-container', { delay: 200 });
+srtop.reveal('.about2 .content .resumebtn', { delay: 200 });
 
 
-// /* SCROLL PROJECTS */
-// srtop.reveal('.work .box', { interval: 200 });
+/* SCROLL SKILLS */
+srtop.reveal('.skills2 .container', { interval: 200 });
+srtop.reveal('.skills2 .container .bar', { delay: 400 });
 
 
-// /* SCROLL CONTACT */
-// srtop.reveal('.contact2 .container', { delay: 400 });
-// srtop.reveal('.contact2 .container .form-group', { delay: 400 });
+/* SCROLL PROJECTS */
+srtop.reveal('.work .box', { interval: 200 });
+
+
+/* SCROLL CONTACT */
+srtop.reveal('.contact2 .container', { delay: 400 });
+srtop.reveal('.contact2 .container .form-group', { delay: 400 });
+
+// Skills Category Filter
+function showSkillsCategory(category) {
+
+    document.querySelectorAll(".skill-display").forEach(section => {
+        section.style.display = "none";
+    });
+
+    document.getElementById(category).style.display = "grid";
+
+}
+
+// Profile Tabs Switching
+const tabSkills = document.getElementById("tab-skills");
+const tabEducation = document.getElementById("tab-education");
+const tabExperience = document.getElementById("tab-experience");
+
+const skillsSection = document.getElementById("skills");
+const educationSection = document.getElementById("education");
+const experienceSection = document.getElementById("experience");
+
+function hideAllSections() {
+  skillsSection.style.display = "none";
+  educationSection.style.display = "none";
+  experienceSection.style.display = "none";
+}
+
+tabSkills.addEventListener("click", () => {
+  hideAllSections();
+  skillsSection.style.display = "block";
+});
+
+tabEducation.addEventListener("click", () => {
+  hideAllSections();
+  educationSection.style.display = "block";
+});
+
+tabExperience.addEventListener("click", () => {
+  hideAllSections();
+  experienceSection.style.display = "block";
+});

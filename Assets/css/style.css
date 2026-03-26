@@ -544,7 +544,7 @@ background:linear-gradient(135deg,#3a0ca3,#4361ee);
   margin-bottom: 25px;
   cursor: pointer;
   color: #bbb;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .tab-profile .tabs div {
@@ -688,6 +688,21 @@ transition:0.3s;
   color:white;
   border:1px solid transparent;
   transition:.35s;
+    position: relative;
+
+}
+.skill-box .arrow{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.skill-box.active .arrow{
+  transform: translateY(-50%) rotate(180deg);
+  color: #ff7b00;
 }
 
 .skill-box:hover{

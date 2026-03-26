@@ -330,6 +330,7 @@ function showSkillsCategory(category) {
         section.style.display = "none";
     });
 
+    
     document.getElementById(category).style.display = "grid";
 
 }

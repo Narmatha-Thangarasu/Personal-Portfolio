@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-
-
     $('#menu').click(function () {
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
@@ -39,24 +37,21 @@ $(document).ready(function () {
         }, 500, 'linear')
     });
 
-
-
 });
 
-document.addEventListener('visibilitychange',
-    function () {
-        if (document.visibilityState === "visible") {
-            document.title = "Portfolio | Narmatha";
-            $("#favicon").attr("href", "Assets/images/R.png");
-        }
-        else {
-            document.title = "Come Back To Portfolio";
-            $("#favicon").attr("href", "Assets/images/back.png");
-        }
-    });
+document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === "visible") {
+        document.title = "Portfolio | Narmatha";
+        $("#favicon").attr("href", "Assets/images/R.png");
+    }
+    else {
+        document.title = "Come Back To Portfolio";
+        $("#favicon").attr("href", "Assets/images/back.png");
+    }
+});
 
 
-// <!-- typed js effect starts -->
+// typed js effect
 var typed = new Typed(".typing-text", {
     strings: ["Software Developer", "Front-End Developer"],
     loop: true,
@@ -64,278 +59,306 @@ var typed = new Typed(".typing-text", {
     backSpeed: 25,
     backDelay: 500,
 });
-// <!-- typed js effect ends -->
+
 
 async function fetchData(type = "skills") {
     let response
-    type === "skills" ?
-        response = await fetch("skills.json")
-        :
-        response = await fetch("./projects/projects.json")
+    type === "skills"
+        ? response = await fetch("skills.json")
+        : response = await fetch("./projects/projects.json")
+
     const data = await response.json();
     return data;
 }
 
- 
 
 function showSkills(skills) {
     let skillsContainer = document.getElementById("skillsContainer");
     let skillHTML = "";
+
     skills.forEach(skill => {
         skillHTML += `
         <div class="bar">
-              <div class="info skills-card">
-                <img class="skills-card-img" src="Assets/images/Skills/${skill.icon}" alt="skill" width="50"/>
-                <span class="skills-card-name" >${skill.name}</span>
-              </div>
-            </div>`
+            <div class="info skills-card">
+                <img class="skills-card-img"
+                src="Assets/images/Skills/${skill.icon}"
+                alt="skill" width="50"/>
+                <span class="skills-card-name">${skill.name}</span>
+            </div>
+        </div>`;
     });
+
     skillsContainer.innerHTML = skillHTML;
 }
 
 
-/* JavaScript code for generating project cards */
-
+// project cards generator
 function showProjects(projects) {
+
     let projectsContainer = document.querySelector("#projects .box-container");
     let projectHTML = "";
+
     projects.forEach(project => {
+
         projectHTML += `
         <div class="box project-card">
 
-      <img id="projectimage" draggable="false" src="Assets/images/projects/${project.image}.png" alt="project" />
+            <img id="projectimage"
+            draggable="false"
+            src="Assets/images/projects/${project.image}.png"
+            alt="project" />
 
-      <div>
-        <div class="tag">
-        <h3 class="project-title">${project.name}</h3>
-        </div>
-        <div class="desc">
-          <p class="project-description">${project.desc}</p>
-          <br>
-       
-          <div class="btns">
-            <a href="${project.links.view}" class="btn project-deployed-link" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn project-github-link" target="_blank">Code <i class="fas fa-code"></i></a>
+            <div>
+                <div class="tag">
+                    <h3 class="project-title">${project.name}</h3>
+                </div>
+
+                <div class="desc">
+                    <p class="project-description">${project.desc}</p>
+                    <br>
+
+                    <div class="btns">
+                        <a href="${project.links.view}"
+                        class="btn project-deployed-link"
+                        target="_blank">
+                        <i class="fas fa-eye"></i> View
+                        </a>
+
+                        <a href="${project.links.code}"
+                        class="btn project-github-link"
+                        target="_blank">
+                        Code <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+
+                    <div id="tech2"
+                    class="project-tech-stack">
+
+                        <img id="tech"
+                        src="https://skillicons.dev/icons?i=${project.stacks}">
+                    </div>
+
+                </div>
             </div>
 
-             <div id="tech2" class="project-tech-stack"><img id="tech" src="https://skillicons.dev/icons?i=${project.stacks}" alt=""></div>
-
-        </div>
-      </div>
-    </div>`
+        </div>`;
     });
 
-
-    
     projectsContainer.innerHTML = projectHTML;
 
 
-    
-  let sendbtn = document.querySelector("#send");
-  sendbtn.addEventListener('click',function(e){
-    e.preventDefault()
-  let name = document.querySelector("input[name='name']").value;
-  let email = document.querySelector("input[name='email']").value;
-  let message = document.querySelector("textarea[name='message']").value;
-  let phone = document.querySelector("input[name='phone']").value;
+    let sendbtn = document.querySelector("#send");
 
-  if(email.length < 7){
+    sendbtn.addEventListener('click', function (e) {
 
-         
+        e.preventDefault()
 
+        let name = document.querySelector("input[name='name']").value;
+        let email = document.querySelector("input[name='email']").value;
+        let message = document.querySelector("textarea[name='message']").value;
+        let phone = document.querySelector("input[name='phone']").value;
 
-  if(name.length == 0 || email.length == 0 || message.length == 0  || phone.length  == 0){
+        if (email.length < 7) {
 
-     
-Swal.fire({
-  icon: 'error',
-  title: 'Oops...',
-  text: 'Please make sure to fill in all the required fields before submitting the form!',
-})
-return;
-  }
+            if (name.length == 0 || email.length == 0 || message.length == 0 || phone.length == 0) {
 
-  Swal.fire({
-  icon: 'error',
-  title: 'Oops...',
-  text: 'Invalid Email Address!',
-})
-return;
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill all required fields!'
+                })
 
-  }
+                return;
+            }
 
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Invalid Email Address!'
+            })
 
-  let bodym =   'name: '+ name + '<br/> email :'+email + '<br/> phone :'+phone + '<br/> message :' + message
+            return;
+        }
 
-  Email.send({
-SecureToken : "a5d79846-ab78-4f9c-a0a8-bf499c8aead5",
-    To : 'shubhambhati226@gmail.com',
-    From : 'shubhambhati226@gmail.com',
-    Subject : "Message send through Portfolio by :" +name,
-    Body : bodym
-}).then(
-  message => 
-  Swal.fire({
-  position: 'top-end',
-  icon: 'success',
-  title: 'Message sent successfully!',
-  showConfirmButton: false,
-  timer: 1500
-})
-);
-  document.querySelector("input[name='name']").value = "";
-  document.querySelector("input[name='email']").value = "";
-  document.querySelector("textarea[name='message']").value = "";
-  document.querySelector("input[name='phone']").value = "";
-
-  })
+        let bodym =
+            'name: ' + name +
+            '<br/> email :' + email +
+            '<br/> phone :' + phone +
+            '<br/> message :' + message
 
 
+        Email.send({
+
+            SecureToken: "a5d79846-ab78-4f9c-a0a8-bf499c8aead5",
+            To: 'shubhambhati226@gmail.com',
+            From: 'shubhambhati226@gmail.com',
+            Subject: "Message send through Portfolio by :" + name,
+            Body: bodym
+
+        }).then(
+
+            message => Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Message sent successfully!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+
+        );
+
+        document.querySelector("input[name='name']").value = "";
+        document.querySelector("input[name='email']").value = "";
+        document.querySelector("textarea[name='message']").value = "";
+        document.querySelector("input[name='phone']").value = "";
+
+    });
 
 
-    /* ===== SCROLL REVEAL ANIMATION ===== */
     const srtop = ScrollReveal({
         origin: 'top',
         distance: '80px',
         duration: 1000,
-        // reset: true
     });
 
-    /* SCROLL PROJECTS */
     srtop.reveal('.work .box', { interval: 200 });
 
 }
 
-fetchData().then(data => {
-    showSkills(data);
-});
 
-fetchData("projects").then(data => {
-    showProjects(data);
-});
+fetchData().then(data => showSkills(data));
+fetchData("projects").then(data => showProjects(data));
+
+
+// PROFILE TAB SWITCHING
 const tabs = document.querySelectorAll('#profile-tabs div');
 const sections = document.querySelectorAll('.tab-profile .content-section');
 
 tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
 
-    sections.forEach(sec => sec.classList.remove('active'));
-    document.getElementById(tab.id.replace('tab-', '')).classList.add('active');
-  });
+    tab.addEventListener('click', () => {
+
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        document.getElementById(
+            tab.id.replace('tab-', '')
+        ).classList.add('active');
+
+    });
+
 });
 
-// Disable browser scroll position restoration
+
+// disable scroll restoration
 if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
+    history.scrollRestoration = 'manual';
 }
 
-// Scroll to top on page load
+
+// scroll to top on load
 window.addEventListener('load', function () {
-  setTimeout(() => {
-    // Option 1: scroll to top
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 
-    // Option 2: if your home section has an ID "home", scroll to it:
-    // document.getElementById("home").scrollIntoView({ behavior: 'auto' });
+    setTimeout(() => {
 
-  }, 0);
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'auto'
+        });
+
+    }, 0);
+
 });
 
 
-// Formspree
+// FORM SUBMISSION
 document.addEventListener("DOMContentLoaded", function () {
+
     const contactForm = document.getElementById("contact-form");
+
     if (contactForm) {
+
         contactForm.addEventListener("submit", async function (e) {
-            e.preventDefault(); // stop default submit
-            
+
+            e.preventDefault();
+
             const formData = new FormData(contactForm);
 
             try {
+
                 const response = await fetch(contactForm.action, {
-                     method: "POST", // 🔴 EXPLICIT POST (important)
-          body: formData,
+                    method: "POST",
+                    body: formData,
                     headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
-                    // Show success message
-                    const successMsg = document.getElementById("form-success");
-                    if (successMsg) successMsg.style.display = "block";
 
-                    // Reset form fields
+                    const successMsg =
+                        document.getElementById("form-success");
+
+                    if (successMsg)
+                        successMsg.style.display = "block";
+
                     contactForm.reset();
+
                 } else {
-                    alert("Oops! There was a problem submitting your form.");
+
+                    alert("Form submission error");
+
                 }
+
             } catch (error) {
-                alert("Network error. Please try again.");
+
+                alert("Network error");
+
             }
+
         });
+
     }
+
 });
 
 
+// SKILLS CATEGORY FILTER (UPDATED MOBILE SUPPORT)
+function showSkillsCategory(category, element) {
 
+    const isMobile = window.innerWidth <= 768;
 
+    document.querySelectorAll(".skill-display")
+        .forEach(section => section.style.display = "none");
 
-/* ===== SCROLL REVEAL ANIMATION ===== */
-const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1000,
-    reset: true
-});
+    document.querySelectorAll(".skill-box")
+        .forEach(box => box.classList.remove("active"));
 
-/* SCROLL HOME */
-srtop.reveal('.home2 .content h3', { delay: 200 });
-srtop.reveal('.home2 .content p', { delay: 200 });
-srtop.reveal('.home2 .content .btn', { delay: 200 });
+    element.classList.add("active");
 
-srtop.reveal('.home2 .image', { delay: 400 });
-srtop.reveal('.home2 .linkedin', { interval: 600 });
-srtop.reveal('.home2 .github', { interval: 800 });
+    const selectedSkills =
+        document.getElementById(category);
 
+    if (isMobile) {
 
+        element.insertAdjacentElement(
+            "afterend",
+            selectedSkills
+        );
 
-srtop.reveal('.home2 .dev', { interval: 600 });
+    } else {
 
-/* SCROLL ABOUT */
-srtop.reveal('.about2 .content h3', { delay: 200 });
-srtop.reveal('.about2 .content .tag', { delay: 200 });
-srtop.reveal('.about2 .content p', { delay: 200 });
-srtop.reveal('.about2 .content .box-container', { delay: 200 });
-srtop.reveal('.about2 .content .resumebtn', { delay: 200 });
+        document.querySelector(".skills-area")
+            .appendChild(selectedSkills);
 
+    }
 
-/* SCROLL SKILLS */
-srtop.reveal('.skills2 .container', { interval: 200 });
-srtop.reveal('.skills2 .container .bar', { delay: 400 });
-
-
-/* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 200 });
-
-
-/* SCROLL CONTACT */
-srtop.reveal('.contact2 .container', { delay: 400 });
-srtop.reveal('.contact2 .container .form-group', { delay: 400 });
-
-// Skills Category Filter
-function showSkillsCategory(category) {
-
-    document.querySelectorAll(".skill-display").forEach(section => {
-        section.style.display = "none";
-    });
-
-    
-    document.getElementById(category).style.display = "grid";
-
+    selectedSkills.style.display = "grid";
 }
 
-// Profile Tabs Switching
+
+// PROFILE SECTION SWITCHING
 const tabSkills = document.getElementById("tab-skills");
 const tabEducation = document.getElementById("tab-education");
 const tabExperience = document.getElementById("tab-experience");
@@ -344,23 +367,35 @@ const skillsSection = document.getElementById("skills");
 const educationSection = document.getElementById("education");
 const experienceSection = document.getElementById("experience");
 
+
 function hideAllSections() {
-  skillsSection.style.display = "none";
-  educationSection.style.display = "none";
-  experienceSection.style.display = "none";
+
+    skillsSection.style.display = "none";
+    educationSection.style.display = "none";
+    experienceSection.style.display = "none";
+
 }
 
+
 tabSkills.addEventListener("click", () => {
-  hideAllSections();
-  skillsSection.style.display = "block";
+
+    hideAllSections();
+    skillsSection.style.display = "block";
+
 });
+
 
 tabEducation.addEventListener("click", () => {
-  hideAllSections();
-  educationSection.style.display = "block";
+
+    hideAllSections();
+    educationSection.style.display = "block";
+
 });
 
+
 tabExperience.addEventListener("click", () => {
-  hideAllSections();
-  experienceSection.style.display = "block";
+
+    hideAllSections();
+    experienceSection.style.display = "block";
+
 });

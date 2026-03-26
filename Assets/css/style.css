@@ -705,6 +705,17 @@ transition:0.3s;
   color: #ff7b00;
 }
 
+@media(max-width:768px){
+
+.skills-area{
+  display:block;
+}
+
+.skill-display{
+  margin:15px 0 25px 0;
+}
+
+}
 .skill-box:hover{
   transform:translateY(-5px);
   border:1px solid #ff7b00;
